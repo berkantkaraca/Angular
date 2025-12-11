@@ -1,0 +1,43 @@
+<p>data-binding works!</p>
+<hr>
+
+<h3>{{ pageTitle }}</h3>
+
+<section>
+    Expression <br>
+    {{ numberA }} + {{ numberB }} = {{ numberA + numberB }}
+    <!-- Sağdaki toplama ifadesi expression olarak geçer -->
+
+    <p>{{pageTitle.toUpperCase( )}}</p>
+    <!-- Metot çağırmak yerine ts'den gelen property yi kullanmayı tercih ederiz -->
+</section>
+
+<hr>
+
+<!-- Property Binding() -->
+<h4>Görsel Örneği</h4>
+Normal Kullanım:
+<img src="https://angular.io/assets/images/logos/angular/angular.png" alt="Logo" height="50"> 
+<br>
+
+Property Binding ile Kullanım:
+<img [src]="angularLogoUrl" alt="Logo" height="50">
+
+
+<h4>Button disable attribute</h4>
+<p>Disable attribute'u data binding ile kontrol ediliyor</p>
+
+<button [disabled]="isSaveDisabled">
+    Kaydet (Şuan pasif = {{ isSaveDisabled }})
+</button>
+<hr>
+
+<!-- Event Binding -->
+<h4>(click) Event Binding</h4>
+<p>Butona tıklayınca önce click event'i tetiklenir ve component içindeki <code>onIncrementClik()</code> çalışır</p>
+
+<button (click)="onIncrementClick()">
+    Tıkla
+</button>
+<p>Butona tıklanma sayısı: {{ clickCount }}</p>
+
