@@ -31,19 +31,19 @@ export class DataBinding {
     this.clickCount++;
   }
 
+  //Input texte tarafında bind işlemi yapılacak 
   //Başlangıç değeri property binding ile inputa bağlanacak
   initialInputValue: string = "Merhaba Angular";
 
   //son input değerini tutacak property
-
   //Kullaıcının inputa girdiği son değeri tutacak property
   lastInputValue: string = "";
 
   //input eventi çağıralacak metot
   onTextInputChange(event: Event) {
     //Angular html tarafında bu metot çağrıldığında bize event nesnesi gönderecek
-    //html tarafı ongularda $event keyword'ü yapar
-    //biz bu event nesnesi üzerinden target'ı alıp onu HTMLInputElement tipine casr ettiğimiz zaman elimize istediğimiz tag geçecek
+    //html tarafı angularda $event keyword'ü yapar
+    //biz bu event nesnesi üzerinden target'ı alıp onu HTMLInputElement tipine cast ettiğimiz zaman elimize istediğimiz tag geçecek
     const inputValue = event.target as HTMLInputElement;
     this.lastInputValue = inputValue.value;
   }
