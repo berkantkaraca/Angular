@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';//two way data binding (ngModel) i�
 
 @Component({
   selector: 'app-data-binding',
-  imports: [FormsModule], //template içinde ngModel kullanabilmek için FormsModule'ü import ettik
+  imports: [FormsModule], //template içinde ngModel kullanabilmek için FormsModule'ü import ettik (ngModel (twoWayDataBinding) FormsModule içinde tanımlıdır)
   templateUrl: './data-binding.html',
   styleUrl: './data-binding.css',
 })
@@ -30,5 +30,31 @@ export class DataBinding {
     //Butona her basıldığında clickCount'u 1 artır
     this.clickCount++;
   }
+
+  //Başlangıç değeri property binding ile inputa bağlanacak
+  initialInputValue: string = "Merhaba Angular";
+
+  //son input değerini tutacak property
+
+  //Kullaıcının inputa girdiği son değeri tutacak property
+  lastInputValue: string = "";
+
+  //input eventi çağıralacak metot
+  onTextInputChange(event: Event) {
+    //Angular html tarafında bu metot çağrıldığında bize event nesnesi gönderecek
+    //html tarafı ongularda $event keyword'ü yapar
+    //biz bu event nesnesi üzerinden target'ı alıp onu HTMLInputElement tipine casr ettiğimiz zaman elimize istediğimiz tag geçecek
+    const inputValue = event.target as HTMLInputElement;
+    this.lastInputValue = inputValue.value;
+  }
+
+  //Two Way Data Binding ([(ngModel)])
+  //çift yönlü veri bağlama için kullanılacak property
+  twoWayName: string = "İsmim Angular";
+
+  resetTwoWayName() {
+    this.twoWayName = "";
+  }
+
 
 }
